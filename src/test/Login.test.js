@@ -1,22 +1,21 @@
-import {  isLoggedIn } from "../base/01_var"
+import  { LoginSync } from "../redux/actions/actionLogin"
+import { typesLogin } from "../redux/types/types"
 
-describe("Pruebas a Login test", () => {
-  test('Validar login', () => { 
+describe("Pruebas a  actionLogin", () => {
+  test('Validar actionLogin', () => { 
     
-    const isAutenticated = isLoggedIn
+    const  id = "Hola"
+    const displayname = "Vrilli, Ándres"
 
+    const Login = LoginSync(id, displayname)
 
-    if(isAutenticated){
-        console.log("usuario autenticado");
-    } else{
-        throw new Error("Usuario no autenticado") 
-    }
-
+    expect(Login).toEqual({
+        type: typesLogin.login,
+        payload: {
+            id,
+            displayname
+        }
+    })
    })
-
-
-  
-    
-
 
 })
