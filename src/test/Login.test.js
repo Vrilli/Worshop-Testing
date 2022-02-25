@@ -1,4 +1,4 @@
-import  { LoginSync } from "../redux/actions/actionLogin"
+import  {  LoginSync, logoutAsync } from "../redux/actions/actionLogin"
 import { typesLogin } from "../redux/types/types"
 
 describe("Pruebas a  actionLogin", () => {
@@ -18,4 +18,11 @@ describe("Pruebas a  actionLogin", () => {
     })
    })
 
+  test("Valida Logout", () =>{
+      const logout = logoutAsync();
+      expect( logout).toEqual({
+          type:typesLogin.logout
+      })
+  })
+  
 })
